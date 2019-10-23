@@ -1,7 +1,7 @@
 package http
 
 import (
-	ioutil "awesomeProject/GoLand2019.1/scratches/package/util/io_util"
+	ioutil "./io_util"
 	nativehttp "net/http"
 )
 
