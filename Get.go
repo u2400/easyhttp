@@ -1,8 +1,8 @@
 package http
 
 import (
-	"./class"
-	"./io_util"
+	"github.com/u2400/easyhttp/class"
+	"github.com/u2400/easyhttp/io_util"
 	nativehttp "net/http"
 )
 
@@ -33,7 +33,7 @@ func Get(method class.HttpRequestMethod) *class.HttpResponseMethod {
 		}
 	}
 
-	body_string, err := io_util.F_io_reader_to_string(&res.Body)
+	body_string, err := io_util.IoReaderToString(&res.Body)
 
 	if (err != nil) {
 		return &class.HttpResponseMethod {

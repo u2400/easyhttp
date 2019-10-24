@@ -1,7 +1,7 @@
 package http
 
 import (
-	"./class"
+	"github.com/u2400/easyhttp/class"
 )
 
 type HttpRequestMethod class.HttpRequestMethod

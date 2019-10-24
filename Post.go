@@ -1,6 +1,6 @@
 package http
 
-import "easyhttp/class"
+import "github.com/u2400/easyhttp/class"
 
 func Post (method class.HttpRequestMethod) {
 
