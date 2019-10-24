@@ -2,7 +2,7 @@ package http
 
 import (
 	"./class"
-	ioutil "./io_util"
+	"./io_util"
 	nativehttp "net/http"
 )
 
@@ -33,7 +33,8 @@ func Get(method class.HttpRequestMethod) *class.HttpResponseMethod {
 		}
 	}
 
-	body_string, err := ioutil.F_io_reader_to_string(&res.Body)
+	body_string, err := io_util.F_io_reader_to_string(&res.Body)
+
 	if (err != nil) {
 		return &class.HttpResponseMethod {
 			Err: err,
