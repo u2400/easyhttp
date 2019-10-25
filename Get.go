@@ -23,7 +23,7 @@ func Get(method class.HttpRequestMethod) *class.HttpResponseMethod {
 
 	//cookie := nativehttp.Cookie{Name: "testcookiename", Value: "testcookievalue", Path: "/"}
 	//req.AddCookie(&cookie)
-
+	method.Cookie.AddCookieToReq(req)
 
 	//send http request
 	res,err := client.Do(req)

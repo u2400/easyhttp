@@ -21,7 +21,7 @@ func (cmap * CookieMap) Parser (Cookies []http.Cookie) {
 	}
 }
 
-func (cmap * CookieMap) AddCookieToReq (r http.Request) {
+func (cmap * CookieMap) AddCookieToReq (r *http.Request) {
 	for _, value := range cmap.Cookies {
 		r.AddCookie(&value)
 	}
