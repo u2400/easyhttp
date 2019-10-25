@@ -21,8 +21,9 @@ func Get(method class.HttpRequestMethod) *class.HttpResponseMethod {
 		method.MakeHeaderMapIntoReq(req)
 	}
 
-	cookie := nativehttp.Cookie{Name: "testcookiename", Value: "testcookievalue", Path: "/"}
-	req.AddCookie(&cookie)
+	//cookie := nativehttp.Cookie{Name: "testcookiename", Value: "testcookievalue", Path: "/"}
+	//req.AddCookie(&cookie)
+
 
 	//send http request
 	res,err := client.Do(req)
