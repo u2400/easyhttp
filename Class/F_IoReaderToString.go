@@ -1,4 +1,4 @@
-package io_util
+package Class
 
 import (
 	"io"

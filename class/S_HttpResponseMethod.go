@@ -1,7 +1,7 @@
-package class
+package Class
 
 type HttpResponseMethod struct {
-	StatusCode int8
+	StatusCode int
 	Url string
 	Headers map[string]string
 	Body string

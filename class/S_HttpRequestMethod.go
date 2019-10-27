@@ -1,11 +1,12 @@
-package class
+package Class
 
 import "net/http"
 
 type HttpRequestMethod struct {
 	Url    string
 	Header map[string]string
-	Cookie CookieMap
+	Method string
+	Cookie Cookies
 	JsonBody map[string]interface{}
 	RawBody string
 	FilePath string

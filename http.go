@@ -1,8 +1,9 @@
-package http
+package easyhttp
 
 import (
-	"github.com/u2400/easyhttp/class"
+	"github.com/u2400/easyhttp/Class"
 )
 
-type HttpRequestMethod class.HttpRequestMethod
-type HttpResponseMethod class.HttpResponseMethod
+type HttpRequestMethod Class.HttpRequestMethod
+type HttpResponseMethod Class.HttpResponseMethod
+
