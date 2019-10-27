@@ -6,27 +6,27 @@ import (
 	"strings"
 )
 
-func Request(HttpRequestMethod Class.HttpRequestMethod) *Class.HttpResponseMethod {
+func Request(HttpRequestStruct Class.HttpRequestStruct) *Class.HttpResponseStruct {
 	client := &nativehttp.Client{}
 
-	req, err := nativehttp.NewRequest(HttpRequestMethod.Method, HttpRequestMethod.Url, nil)
+	req, err := nativehttp.NewRequest(HttpRequestStruct.Method, HttpRequestStruct.Url, nil)
 	if (err != nil) {
-		return &Class.HttpResponseMethod {
+		return &Class.HttpResponseStruct {
 			Err: err,
 		}
 	}
 
-	if (HttpRequestMethod.Header != nil) {
-		HttpRequestMethod.MakeHeaderMapIntoReq(req)
+	if (HttpRequestStruct.Header != nil) {
+		HttpRequestStruct.MakeHeaderMapIntoReq(req)
 	}
 
-	HttpRequestMethod.Cookie.AddCookieToReq(req)
+	HttpRequestStruct.Cookie.AddCookieToReq(req)
 
 	//send http request
 	res,err := client.Do(req)
 	defer res.Body.Close()
 	if (err != nil) {
-		return &Class.HttpResponseMethod {
+		return &Class.HttpResponseStruct {
 			Err: err,
 		}
 	}
@@ -34,7 +34,7 @@ func Request(HttpRequestMethod Class.HttpRequestMethod) *Class.HttpResponseMetho
 	body_string, err := Class.IoReaderToString(&res.Body)
 
 	if (err != nil) {
-		return &Class.HttpResponseMethod {
+		return &Class.HttpResponseStruct {
 			Err: err,
 		}
 	}
@@ -44,8 +44,8 @@ func Request(HttpRequestMethod Class.HttpRequestMethod) *Class.HttpResponseMetho
 		Headers[k] = strings.Join(v,"")
 	}
 
-	return &Class.HttpResponseMethod {
-		Url: HttpRequestMethod.Url,
+	return &Class.HttpResponseStruct {
+		Url: HttpRequestStruct.Url,
 		StatusCode:res.StatusCode,
 		Body: body_string,
 		Headers: Headers,

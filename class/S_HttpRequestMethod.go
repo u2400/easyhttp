@@ -2,7 +2,7 @@ package Class
 
 import "net/http"
 
-type HttpRequestMethod struct {
+type HttpRequestStruct struct {
 	Url    string
 	Header map[string]string
 	Method string
@@ -12,7 +12,7 @@ type HttpRequestMethod struct {
 	FilePath string
 }
 
-func (method *HttpRequestMethod) MakeHeaderMapIntoReq(req *http.Request) {
+func (method *HttpRequestStruct) MakeHeaderMapIntoReq(req *http.Request) {
 	for k,v := range method.Header {
 		req.Header.Add(k,v)
 	}

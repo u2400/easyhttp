@@ -1,6 +1,6 @@
 package Class
 
-type HttpResponseMethod struct {
+type HttpResponseStruct struct {
 	StatusCode int
 	Url string
 	Headers map[string]string

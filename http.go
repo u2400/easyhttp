@@ -4,6 +4,6 @@ import (
 	"github.com/u2400/easyhttp/Class"
 )
 
-type HttpRequestMethod Class.HttpRequestMethod
-type HttpResponseMethod Class.HttpResponseMethod
+type HttpRequestStruct Class.HttpRequestStruct
+type HttpResponseStruct Class.HttpResponseStruct
 

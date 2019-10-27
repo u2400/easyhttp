@@ -4,6 +4,6 @@ package easyhttp
 //	"github.com/u2400/easyhttp/class"
 //)
 //
-//func Post (method Class.HttpRequestMethod) *HttpResponseMethod{
-//	return &HttpResponseMethod{}
+//func Post (method Class.HttpRequestStruct) *HttpResponseStruct{
+//	return &HttpResponseStruct{}
 //}

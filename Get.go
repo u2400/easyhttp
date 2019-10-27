@@ -1,19 +1,22 @@
 package easyhttp
 
 import (
-"github.com/u2400/easyhttp/Class"
-"reflect"
+	"github.com/u2400/easyhttp/Class"
+	"reflect"
 )
 
-func Get(method interface{}) *Class.HttpResponseMethod {
-	var res *Class.HttpResponseMethod
+func Get(method interface{}) *Class.HttpResponseStruct {
+	var res *Class.HttpResponseStruct
 	switch reflect.TypeOf(method) {
 
-	case reflect.TypeOf(Class.HttpRequestMethod{}):
-		res = Request(method.(Class.HttpRequestMethod))
+	case reflect.TypeOf(Class.HttpRequestStruct{}):
+		var method Class.HttpRequestStruct = method.(Class.HttpRequestStruct)
+		method.Method = "GET"
+		res = Request(method)
 	case reflect.TypeOf(""):
-		res = Request(Class.HttpRequestMethod{
-			Url:method.(string),
+		var method string = method.(string)
+		res = Request(Class.HttpRequestStruct{
+			Url:method,
 			Method: "GET",
 		})
 	}
