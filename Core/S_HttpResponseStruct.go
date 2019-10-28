@@ -1,4 +1,4 @@
-package Class
+package Core
 
 type HttpResponseStruct struct {
 	StatusCode int

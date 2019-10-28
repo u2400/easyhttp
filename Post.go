@@ -1,9 +1,6 @@
 package easyhttp
-//
-//import (
-//	"github.com/u2400/easyhttp/class"
-//)
-//
-//func Post (method Class.HttpRequestStruct) *HttpResponseStruct{
-//	return &HttpResponseStruct{}
-//}
+
+func Post(req interface{}) *HttpResponseStruct {
+	res := forward(req, "POST")
+	return res
+}

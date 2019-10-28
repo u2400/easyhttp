@@ -1,21 +1,21 @@
-package Class
+package Core
 
 import "net/http"
 
 
 type Cookies struct {
-	Value []Cookie
+	Value []http.Cookie
 }
 
 func (cmap *Cookies) Init () {
-	cmap.Value = []Cookie{}
+	cmap.Value = []http.Cookie{}
 }
 
-func (cmap *Cookies) Insert (cookie Cookie) {
+func (cmap *Cookies) Insert (cookie http.Cookie) {
 	cmap.Value = append(cmap.Value, cookie)
 }
 
-func (cmap * Cookies) Parser (Cookies []Cookie) {
+func (cmap * Cookies) Parser (Cookies []http.Cookie) {
 	for _, value := range Cookies {
 		if (value.Name == "" || value.Value == "" ) {
 			panic("Must provide Cookie.Name and Cookie.value")
