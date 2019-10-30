@@ -5,8 +5,8 @@ import (
 	"strings"
 )
 
-func Request(HttpRequestString []byte ) []byte {
-	var HttpRequestObject HttpRequestStruct = toCoreRequest(HttpRequestString)
+func Request(UserRequest []byte, HookMap map[HookName]func(HookObject HookStruct)) []byte {
+	var HttpRequestObject HttpRequestStruct = toCoreRequest(UserRequest, HookMap)
 	var HttpResponseObject HttpResponseStruct = HttpResponseStruct{
 		Url:HttpRequestObject.Url,
 	}
@@ -44,6 +44,7 @@ func Request(HttpRequestString []byte ) []byte {
 	for k, v := range res.Header {
 		Headers[k] = strings.Join(v,"")
 	}
+	HttpResponseObject.Headers = Headers
 
 	return toUserResponse(HttpResponseObject)
 }

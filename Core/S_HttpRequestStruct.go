@@ -4,6 +4,7 @@ import (
 	"net/http"
 )
 
+type HookName string
 type HttpRequestStruct struct {
 	Url      string
 	Header   map[string]string
@@ -12,6 +13,7 @@ type HttpRequestStruct struct {
 	JsonBody map[string]interface{}
 	RawBody  string
 	FilePath string
+	HookMap map[HookName]func(HookObject HookStruct)
 }
 
 func MakeHeaderMapIntoReq(this *HttpRequestStruct, req *http.Request) {
@@ -19,3 +21,16 @@ func MakeHeaderMapIntoReq(this *HttpRequestStruct, req *http.Request) {
 		req.Header.Add(k,v)
 	}
 }
+
+//func GetAttributes( _r UserRequestInterface) HttpRequestStruct{
+//	req := HttpRequestStruct{}
+//	v := reflect.ValueOf(_r)
+//	_req := v.
+//	count := v.NumField()
+//
+//	for i := 0 ; i < count ; i++ {
+//		fmt.Println(v.Elem().Field(i))
+//	}
+//	fmt.Print(req)
+//	return req
+//}

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 )
 
-func toCoreRequest(_r []byte) HttpRequestStruct {
+func toCoreRequest(_r []byte, HookMap map[HookName]func(HookObject HookStruct)) HttpRequestStruct {
 	var HttpRequestObject HttpRequestStruct = HttpRequestStruct{}
 
 	//make json to object
@@ -13,6 +13,7 @@ func toCoreRequest(_r []byte) HttpRequestStruct {
 		panic(err)
 	}
 
+	HttpRequestObject.HookMap = HookMap
 	return HttpRequestObject
 }
 

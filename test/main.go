@@ -6,8 +6,6 @@ import (
 )
 
 func main() {
-	res := easyhttp.Get(easyhttp.HttpRequestStruct{
-		Url:"http://baidu.com",
-	})
+	res := easyhttp.Get("http://baidu.com")
 	fmt.Print(res)
 }

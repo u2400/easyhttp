@@ -29,13 +29,13 @@ func forward(_req interface{},method string) *HttpResponseStruct {
 		error += "[from forward.go->(func forward)] 非预期的参数类型: 需要一个HttpRequestStruct{}或string类型参数"
 		panic(error)
 	}
-
+	var err error
 	JsonReq, err := json.Marshal(req)
 	if (err != nil) {
 		panic(err)
 	}
 
-	JsonRes := Core.Request(JsonReq)
+	JsonRes := Core.Request(JsonReq, req.HookMap)
 
 	err = json.Unmarshal(JsonRes, &res)
 	if (err != nil) {
